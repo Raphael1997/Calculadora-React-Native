@@ -11,10 +11,12 @@ interface Props {
     text: string,
     colour?: string,
     width?: boolean,
-    action: (textNumber: string) => void
+    action: (textNumber: string) => void,
+    changeSign?: () => void
 }
 
-const BtnCalculator = ({ text, colour = "#2D2D2D", width = false, action }: Props) => {
+const BtnCalculator = (
+    { text, colour = "#2D2D2D", width = false, action }: Props) => {
     return (
 
         <TouchableOpacity
