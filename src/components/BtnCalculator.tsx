@@ -1,22 +1,37 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable quotes */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable comma-dangle */
 
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { styles } from '../theme/appTheme';
 
 interface Props {
     text: string,
-    colour?: string
+    colour?: string,
+    width?: boolean,
+    action: (textNumber: string) => void
 }
 
-const BtnCalculator = ({ text, colour }: Props) => {
+const BtnCalculator = ({ text, colour = "#2D2D2D", width = false, action }: Props) => {
     return (
-        <View style={{
-            ...styles.button,
-            backgroundColor: colour
-        }}>
-            <Text style={styles.buttonText}>{text}</Text>
-        </View>
+
+        <TouchableOpacity
+            onPress={() => action(text)}
+        >
+            <View style={{
+                ...styles.button,
+                backgroundColor: colour,
+                width: (width) ? 160 : 80
+            }}>
+                <Text style={{
+                    ...styles.buttonText,
+                    color: (colour === "#9B9B9B") ? "black" : "white"
+                }}>{text}</Text>
+            </View >
+        </TouchableOpacity>
+
     )
 }
 

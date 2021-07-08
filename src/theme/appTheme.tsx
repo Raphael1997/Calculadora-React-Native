@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
         width: 80,
         backgroundColor: "#2D2D2D",
         borderRadius: 100,
+        marginHorizontal: 5,
         justifyContent: "center"
     },
     buttonText: {

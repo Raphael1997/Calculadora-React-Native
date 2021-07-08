@@ -10,7 +10,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.background}>
       <StatusBar 
-      backgroundColor="blue"
+      backgroundColor="black"
       barStyle="light-content"
       
       />
