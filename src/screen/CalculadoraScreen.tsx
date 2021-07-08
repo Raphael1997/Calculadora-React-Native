@@ -52,9 +52,24 @@ const CalculadoraScreen = () => {
 
     }
 
-    // delet que last input 
+    /**
+     *  delet que last input
+     */
     const deleteLastInput = () => {
 
+        let negative = "";
+        let tempNumber = number;
+
+        if (number.includes("-")) {
+            negative = "-";
+            tempNumber = number.substr(1);
+        }
+
+        if (tempNumber.length > 1) {
+            setNumber(negative + tempNumber.slice(0, -1));
+        } else {
+            setNumber("0");
+        }
     }
 
     /**
@@ -78,7 +93,7 @@ const CalculadoraScreen = () => {
             <View style={styles.row}>
                 <BtnCalculator text={"C"} colour={"#9B9B9B"} action={cleanScreen} />
                 <BtnCalculator text={"+/-"} colour={"#9B9B9B"} action={changeSign} />
-                <BtnCalculator text={"DEL"} colour={"#9B9B9B"} action={cleanScreen} />
+                <BtnCalculator text={"DEL"} colour={"#9B9B9B"} action={deleteLastInput} />
                 <BtnCalculator text={"/"} colour={"#FF9427"} action={cleanScreen} />
             </View>
 
